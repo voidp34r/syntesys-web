@@ -8,11 +8,16 @@ import { SyntesysRoutingModule } from './syntesys-routing.module';
 // >> Modules
 import { MaterialModule } from './material/material/material.module';
 import { ComponentModule } from './component/component.module';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { AngularfireModule } from '../angularfire/angularfire.module';
 
 // >> Services
-
+import { AuthService } from '../auth/auth.service';
+import { AuthGuard } from '../auth/auth.guard';
+// >> Interceptor Module
+// import {AuthInterceptor} from './services/auth-interceptor';
+import { ApplicationHttpClient, applicationHttpClientCreator } from '../client/ApplicationHttpClient';
+import { MyInterceptor } from '../interceptor/myInterceptor';
+import { ServerLocationInterceptor } from '../interceptor/serverLocationInterceptor';
+import { serverHttpClientCreator } from '../client/serverHttpClient';
 // >> Components
 
 @NgModule({
@@ -21,18 +26,39 @@ import { AngularfireModule } from '../angularfire/angularfire.module';
     HttpClientModule,
     SyntesysRoutingModule,
     MaterialModule,
-    ComponentModule,
-    InfiniteScrollModule,
-    AngularfireModule
+    ComponentModule
   ],
   exports: [
     HttpClientModule,
     MaterialModule,
-    ComponentModule,
-    InfiniteScrollModule,
-    AngularfireModule
+    ComponentModule
   ],
-  providers: [ ],
+  providers: [
+    AuthService,
+    AuthGuard,
+    // Provide the Authentication interceptor
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyInterceptor,
+      multi: true
+    },
+
+    // Provide the extended HttpClient
+    {
+      provide: ApplicationHttpClient,
+      useFactory: applicationHttpClientCreator,
+      deps: [HttpClient]
+    },
+
+    // Provide the extended Server Http Client
+    {
+      provide: ServerLocationInterceptor,
+      useFactory: serverHttpClientCreator,
+      deps: [HttpClient]
+    },
+    // It is not required but it is good practise to have one.
+    // TokenService
+   ],
   declarations: []
 })
 export class SyntesysModule {}

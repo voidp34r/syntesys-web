@@ -24,16 +24,18 @@
   <link rel="manifest" href="assets/favico/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="assets/favico/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+
+  <meta name="theme-color" content="#349933">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
   <app-root></app-root>
-  <div id="console">Carregando Console...</div>
+  <!-- <div id="console">Carregando Console...</div> -->
 </body>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  // document.addEventListener('DOMContentLoaded', function () {
     // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // // The Firebase SDK is initialized and available here!
     //
@@ -44,16 +46,16 @@
     //
     // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-    try {
-      let app = firebase.app();
-      let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] ===
-        'function');
-      document.getElementById('console').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-    } catch (e) {
-      console.error(e);
-      document.getElementById('console').innerHTML = 'Error loading the Firebase SDK, check the console.';
-    }
-  });
+  //   try {
+  //     let app = firebase.app();
+  //     let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] ===
+  //       'function');
+  //     document.getElementById('console').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+  //   } catch (e) {
+  //     console.error(e);
+  //     document.getElementById('console').innerHTML = 'Error loading the Firebase SDK, check the console.';
+  //   }
+  // });
 
 </script>
 
