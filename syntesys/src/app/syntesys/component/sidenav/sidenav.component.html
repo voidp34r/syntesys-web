@@ -14,7 +14,13 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <p *ngFor="let content of fillerContent">{{content}}</p>
+      <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
+      <div style="text-align:center">
+          <h1> Syntesys.me </h1>
+            <a routerLink="/" routerLinkActive="active">Dashboard</a>
+            <a routerLink="/config" routerLinkActive="active">Config</a>
+          <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

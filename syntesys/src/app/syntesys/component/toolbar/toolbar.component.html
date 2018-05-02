@@ -1,3 +1,88 @@
-<p>
-  toolbar works!
-</p>
+<section *ngIf=" isLoged; let item; else loading">
+
+  <div *ngIf="user">
+    <button mat-button [matMenuTriggerFor]="meMenu">
+      <img src="{{ user.photoURL }}" style="border-radius: 50%; max-width: 35px;"> {{ user.displayName }}
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="appMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #meMenu="matMenu" yPosition="above">
+      <mat-list>
+        <mat-list-item>
+          <button mat-menu-item routerLink="/me" routerLinkActive="active">
+            <mat-icon>cloud</mat-icon> Minha Conta
+          </button>
+        </mat-list-item>
+        <!-- <mat-list-item>
+          <button mat-menu-item routerLink="/api" routerLinkActive="active">
+            <mat-icon>cloud</mat-icon> api
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-menu-item routerLink="/api/user" routerLinkActive="active">
+            <mat-icon>cloud</mat-icon> api/user
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-menu-item routerLink="/api/user/id" routerLinkActive="active">
+            <mat-icon>cloud</mat-icon> /api/user/id
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-menu-item routerLink="/api/user/:id" routerLinkActive="active">
+            <mat-icon>cloud</mat-icon> /api/user/:id
+          </button>
+        </mat-list-item> -->
+        <!-- <mat-list-item>
+          <button mat-menu-item routerLink="/login" routerLinkActive="active">
+            <mat-icon>build</mat-icon>login
+          </button>
+        </mat-list-item> -->
+      </mat-list>
+    </mat-menu>
+
+    <mat-menu #appMenu="matMenu" yPosition="above">
+      <mat-list>
+        <mat-list-item>
+            <button mat-menu-item routerLink="/me" routerLinkActive="active">
+              <mat-icon>cloud</mat-icon> Minha Conta
+            </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-menu-item routerLink="." routerLinkActive="active">
+            <mat-icon>build</mat-icon>upgrade
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-menu-item routerLink="/config" routerLinkActive="active">
+            <mat-icon></mat-icon>Configurações
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>stop</mat-icon> Sair
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-menu>
+  </div>
+</section>
+<ng-template class="loading-template" #loading>
+  <div *ngIf="!user">
+    <button mat-button routerLink="/login" routerLinkActive="active">
+      <mat-icon>account_circle</mat-icon>
+      Login
+    </button>
+  </div>
+  <!-- <mat-spinner></mat-spinner> -->
+  <!-- <div style="text-align:center">
+    <span>Autorizando Login</span>
+  </div>
+  <div class="cssload-thecube">
+    <div class="cssload-cube cssload-c1"></div>
+    <div class="cssload-cube cssload-c2"></div>
+    <div class="cssload-cube cssload-c4"></div>
+    <div class="cssload-cube cssload-c3"></div>
+  </div> -->
+</ng-template>

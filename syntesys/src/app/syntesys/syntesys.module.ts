@@ -8,6 +8,7 @@ import { SyntesysRoutingModule } from './syntesys-routing.module';
 // >> Modules
 import { MaterialModule } from './material/material/material.module';
 import { ComponentModule } from './component/component.module';
+import { ViewModule } from './view/view.module';
 
 // >> Services
 import { AuthService } from '../auth/auth.service';
@@ -26,12 +27,14 @@ import { serverHttpClientCreator } from '../client/serverHttpClient';
     HttpClientModule,
     SyntesysRoutingModule,
     MaterialModule,
-    ComponentModule
+    ComponentModule,
+    ViewModule
   ],
   exports: [
     HttpClientModule,
     MaterialModule,
-    ComponentModule
+    ComponentModule,
+    ViewModule
   ],
   providers: [
     AuthService,

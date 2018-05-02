@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 
 import {AppRoutingModule } from './app-routing.module';
 
@@ -10,7 +10,15 @@ import {AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SyntesysModule } from './syntesys/syntesys.module';
 
-
+// >> Services
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
+// >> Interceptor Module
+// import {AuthInterceptor} from './services/auth-interceptor';
+import { ApplicationHttpClient, applicationHttpClientCreator } from './client/ApplicationHttpClient';
+import { MyInterceptor } from './interceptor/myInterceptor';
+import { ServerLocationInterceptor } from './interceptor/serverLocationInterceptor';
+import { serverHttpClientCreator } from './client/serverHttpClient';
 
 @NgModule({
   declarations: [
@@ -22,7 +30,32 @@ import { SyntesysModule } from './syntesys/syntesys.module';
     RouterModule,
     AppRoutingModule
   ],
-  providers: [  ],
+  providers: [
+    AuthService,
+    AuthGuard,
+    // Provide the Authentication interceptor
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyInterceptor,
+      multi: true
+    },
+
+    // Provide the extended HttpClient
+    {
+      provide: ApplicationHttpClient,
+      useFactory: applicationHttpClientCreator,
+      deps: [HttpClient]
+    },
+
+    // Provide the extended Server Http Client
+    {
+      provide: ServerLocationInterceptor,
+      useFactory: serverHttpClientCreator,
+      deps: [HttpClient]
+    },
+    // It is not required but it is good practise to have one.
+    // TokenService
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

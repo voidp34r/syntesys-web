@@ -3,6 +3,10 @@ import { PreloadAllModules, Routes, RouterModule } from '@angular/router';
 
 import { ErrorComponent } from './syntesys/component/error/error.component';
 import { ConsoleComponent } from './syntesys/component/console/console.component';
+import { ConfigComponent } from './syntesys/view/config/config.component';
+import { LoginComponent } from './syntesys/component/login/login.component';
+
+import { AuthGuard } from './auth/auth.guard';
 // import { AuthGuard, CanDeactivateGuard, UserProfileService } from '';
 // import { PageNotFoundComponent } from './page-not-found.component';
 
@@ -18,6 +22,15 @@ import { ConsoleComponent } from './syntesys/component/console/console.component
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   { path: 'dashboard', component: ConsoleComponent},
+  { path: 'config', component: ConfigComponent},
+  { path: 'dash', component: LoginComponent },
+  {
+    path: 'config',
+    component: ConfigComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    canLoad: [AuthGuard],
+  },
   // { path: 'dashboard', loadChildren: 'app/syntesys/syntesys.module#SyntesysModule' },
   // {
   //   path: 'dashboard',
