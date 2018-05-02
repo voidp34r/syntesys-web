@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { SyntesysRoutingModule } from './syntesys-routing.module';
 
@@ -18,6 +18,7 @@ import { AngularfireModule } from '../angularfire/angularfire.module';
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     SyntesysRoutingModule,
     MaterialModule,
     ComponentModule,
@@ -25,6 +26,7 @@ import { AngularfireModule } from '../angularfire/angularfire.module';
     AngularfireModule
   ],
   exports: [
+    HttpClientModule,
     MaterialModule,
     ComponentModule,
     InfiniteScrollModule,
