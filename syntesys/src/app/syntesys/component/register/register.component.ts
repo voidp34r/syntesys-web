@@ -1,15 +1,65 @@
 import { Component, OnInit } from '@angular/core';
-
-@Component({
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../auth/auth.service';
+import { Router } from '@angular/router';@Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor() { }
+  registerForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  });
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [
+    Validators.required,
+    Validators.minLength(7),
+    Validators.maxLength(8)
+  ]);
+  user: any;
+  hide = true;
+  constructor(
+    private auth: AuthService,
+    router: Router
+  ) { }
 
   ngOnInit() {
+    // this.auth._firebaseAuth.authState
+    // .subscribe( (user) => {
+    //   if (user) {
+    //     this.user = user.providerData;
+    //     console.log(this.user);
+    //   } else {
+    //     this.user = null;
+    //   }
+    // });
+  }
+
+  ngOnRegister(email, password) {
+    // console.log(email, password);
+    this.auth.register(email, password);
+  }
+
+  ngClear() {
+    this.email.clearAsyncValidators();
+    this.password.clearAsyncValidators();
+  }
+  getEmailErrorMessage() {
+    return this.email.hasError('required')
+      ? 'Você deve digitar o email antes'
+      : this.email.hasError('email')
+        ? 'Não é um email'
+        : '';
+  }
+  getPasswordErrorMessage() {
+    return this.password.hasError('required')
+      ? 'Você deve digitar a senha antes'
+      : this.password.hasError('minlength')
+        ? 'Senha deve ter pelo meno 7 caracteres'
+        : this.password.hasError('maxlength')
+          ? 'Senha não deve ter mais que 8 caracteres'
+          : '';
   }
 
 }

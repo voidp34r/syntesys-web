@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 
 import {AppRoutingModule } from './app-routing.module';
-
+import { FirecoreModule } from './syntesys/firecore/firecore.module';
 
 import { AppComponent } from './app.component';
 import { SyntesysModule } from './syntesys/syntesys.module';
@@ -20,6 +20,7 @@ import { MyInterceptor } from './interceptor/myInterceptor';
 import { ServerLocationInterceptor } from './interceptor/serverLocationInterceptor';
 import { serverHttpClientCreator } from './client/serverHttpClient';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { serverHttpClientCreator } from './client/serverHttpClient';
     BrowserModule,
     SyntesysModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FirecoreModule
   ],
   providers: [
     AuthService,
