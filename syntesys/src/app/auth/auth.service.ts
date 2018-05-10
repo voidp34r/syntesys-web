@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { Response } from '@angular/http';
 
 import * as firebase from 'firebase';
+import * as firebaseui from 'firebaseui';
 import * as admin from 'firebase-admin';
 import * as SynApp from 'firebase/app';
 const synfire = firebase;
 
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -42,7 +43,7 @@ export class AuthService implements OnInit {
       this.firedb('users');
     }
     currentUser() {
-      const user = firebase.auth().currentUser
+      const user = firebase.auth().currentUser;
       console.log(user);
       if (user != null ) {
         console.log('user :', user);

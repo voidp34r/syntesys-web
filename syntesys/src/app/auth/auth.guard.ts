@@ -4,7 +4,8 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { AuthService } from './auth.service';
 
 import { Observable } from 'rxjs/Observable';
-
+import * as firebase from 'firebase';
+import * as firebaseui from 'firebaseui';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+import * as firebaseui from 'firebaseui';
 // import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+
+import { FireuiService } from '../../../service/fireui.service';
 
 @Component({
   selector: 'app-login',
@@ -22,10 +26,15 @@ export class LoginComponent implements OnInit {
   ]);
   user: any;
   hide = true;
+
   constructor(
     private auth: AuthService,
-    router: Router
-  ) {}
+    router: Router,
+    fireui: FireuiService
+  ) {
+    fireui.ngDoCheck();
+    fireui.teste();
+   }
 
   ngOnInit() {
     // this.auth._firebaseAuth.authState
@@ -37,6 +46,7 @@ export class LoginComponent implements OnInit {
     //     this.user = null;
     //   }
     // });
+
   }
 
   ngOnSubmit(email, password) {

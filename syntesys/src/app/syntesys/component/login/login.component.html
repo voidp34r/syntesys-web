@@ -4,7 +4,7 @@
 <mat-card *ngIf="!user" class="login">
   <form action="ngOnSubmit($event, formControl)" #loginForm>
     <div class="login-container">
-      <mat-form-field>
+      <!-- <mat-form-field>
         <input matInput placeholder="Seu email" required>
         <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
       </mat-form-field>
@@ -15,12 +15,20 @@
         <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
       <button mat-button type="submit" color="accent" (click)="ngOnSubmit($event)"> Login </button>
-      <button mat-button color="accent" routerLink="/register" routerLinkActive="active"> Register </button>
+      <button mat-button color="accent" routerLink="/register" routerLinkActive="active"> Register </button> -->
       <!-- <button mat-button color="accent" (click)="ngOnSubmit(email.value, password.value)"> login</button> -->
       <!-- <button mat-button color="accent" (click)="ngClear()"> limpar</button> -->
       <!-- <pre>
         Login: {{ email.value }} password: {{ password.value }}
       </pre> -->
     </div>
+      <!-- The surrounding HTML is left untouched by FirebaseUI.
+     Your app may use that space for branding, controls and other customizations.-->
+  <!-- <h1>Welcome to My Awesome App</h1> -->
+  <div id="firebaseui-auth-container"></div>
+  <div id="loader">Loading...</div>
   </form>
+</mat-card>
+<mat-card>
+
 </mat-card>

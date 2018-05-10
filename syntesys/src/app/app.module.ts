@@ -20,6 +20,8 @@ import { MyInterceptor } from './interceptor/myInterceptor';
 import { ServerLocationInterceptor } from './interceptor/serverLocationInterceptor';
 import { serverHttpClientCreator } from './client/serverHttpClient';
 
+import * as firebase from 'firebase';
+import * as firebaseui from 'firebaseui';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { serverHttpClientCreator } from './client/serverHttpClient';
     FirecoreModule
   ],
   providers: [
-    AuthService,
+    // AuthService,
     AuthGuard,
     // Provide the Authentication interceptor
     {
