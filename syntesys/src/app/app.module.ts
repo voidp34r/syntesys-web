@@ -4,17 +4,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 
-import {AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { FirecoreModule } from './syntesys/firecore/firecore.module';
 
+// >> APP
 import { AppComponent } from './app.component';
 import { SyntesysModule } from './syntesys/syntesys.module';
 
 // >> Services
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
+import { MessageService } from 'primeng/components/common/messageservice';
+import {GrowlModule} from 'primeng/growl';
 // >> Interceptor Module
-// import {AuthInterceptor} from './services/auth-interceptor';
+// >> import {AuthInterceptor} from './services/auth-interceptor';
 import { ApplicationHttpClient, applicationHttpClientCreator } from './client/ApplicationHttpClient';
 import { MyInterceptor } from './interceptor/myInterceptor';
 import { ServerLocationInterceptor } from './interceptor/serverLocationInterceptor';
@@ -32,7 +35,7 @@ import * as firebaseui from 'firebaseui';
     SyntesysModule,
     RouterModule,
     AppRoutingModule,
-    FirecoreModule
+    FirecoreModule,
   ],
   providers: [
     // AuthService,

@@ -11,6 +11,10 @@ import { ConsoleComponent } from './console/console.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FireuiService } from '../../service/fireui.service';
+import { TerminalComponent } from './terminal/terminal.component';
+
+import { IlegraService } from './console/ilegra/ilegra.service';
+
 
 @NgModule({
   exports: [
@@ -20,13 +24,14 @@ import { FireuiService } from '../../service/fireui.service';
     ConsoleComponent,
     LoginComponent,
     RegisterComponent,
+    TerminalComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ComponentRoutingModule
   ],
-  providers: [ FireuiService ],
-  declarations: [ToolbarComponent, SidenavComponent, ErrorComponent, ConsoleComponent, LoginComponent, RegisterComponent]
+  providers: [ FireuiService, IlegraService ],
+  declarations: [ToolbarComponent, SidenavComponent, ErrorComponent, ConsoleComponent, LoginComponent, RegisterComponent, TerminalComponent]
 })
 export class ComponentModule { }

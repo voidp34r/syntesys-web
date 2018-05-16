@@ -2902,6 +2902,10 @@ file-loader@^1.1.5:
     loader-utils "^1.0.2"
     schema-utils "^0.4.5"
 
+file-saver@^1.3.8:
+  version "1.3.8"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-1.3.8.tgz#e68a30c7cb044e2fb362b428469feb291c2e09d8"
+
 file-uri-to-path@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
@@ -6021,6 +6025,10 @@ pretty-error@^2.0.2:
     renderkid "^2.0.1"
     utila "~0.4"
 
+primeng@^5.2.6:
+  version "5.2.6"
+  resolved "https://registry.yarnpkg.com/primeng/-/primeng-5.2.6.tgz#d26f2a9c68a13745dda17c78ce33ba49343d8099"
+
 process-nextick-args@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
@@ -6670,6 +6678,10 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
+rxjs-compat@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.1.0.tgz#935059623ee4c167728c9dd03ee6e4468cc5b583"
+
 rxjs@^5.5.6:
   version "5.5.10"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.10.tgz#fde02d7a614f6c8683d0d1957827f492e09db045"
@@ -6749,6 +6761,12 @@ schema-utils@^0.4.0, schema-utils@^0.4.2, schema-utils@^0.4.5:
   dependencies:
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
+
+schm@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/schm/-/schm-0.3.7.tgz#f2afc352bebe35c2f472d077e2aeb49aa01c8a71"
+  dependencies:
+    lodash "^4.17.4"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"

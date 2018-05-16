@@ -111,9 +111,9 @@ export class AuthService implements OnInit {
     }
 
     firedb(path) {
-      console.log('this.firedb');
+      // console.log('this.firedb');
       const db = firebase.database().ref(path);
-      console.log(db.ref.toString());
+      // console.log(db.ref.toString());
       return 0;
     }
 

@@ -25,12 +25,22 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: ConsoleComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'console',
+    component: ConsoleComponent,
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'anon',
+    component: ConsoleComponent,
+    // canActivate: [AuthGuard]
   },
   {
     path: 'config',
     component: ConfigComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'register',

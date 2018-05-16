@@ -1,3 +1,67 @@
-<p>
-  console works!
-</p>
+<section>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Console implementado com Sucesso! pode tertar digitando algum comando.
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+  <mat-card>
+    <div id="wrapper">
+      <h1>Leitor de Arquivos</h1>
+      <div>
+        Selecione o arquivo:
+      <br>
+        <!-- <input type="file" id="fileInput" value="Selecionar aquivo"> -->
+        <input type="file" id="files" name="files[]" multiple />
+        <br>
+        <output id="list">aaa</output>
+        <br>
+      <button mat-button (click)='ngClick($event)' > Ler Arquivo </button>
+      </div>
+      <pre id="fileDisplayArea"></pre>
+    </div>
+  </mat-card>
+  <div>
+    <Pre>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Campo de Input: </mat-label>
+        <input matInput placeholder="Digite Algo...">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </p>
+    <!-- <Pre *ngFor="let item of data"> -->
+      Data: {{ data | json }}
+    </Pre>
+  </div>
+  <div *ngFor="let itemData of dataItems; let indexData=index">
+    <Pre>
+      All Data:  {{ itemData[indexData] }}
+      <ul>
+        <li *ngFor="let itemItem of itemData; let indexItem=index">
+          id: {{ indexItem }} |>>| data: {{ itemItem }}
+        </li>
+      </ul>
+    </Pre>
+    <!-- <div *ngFor="let item of items; let i=index">
+      <Pre>
+        ID: >> {{ i }} ||  data: >> {{ item }}
+      </Pre>
+    </div> -->
+  </div>
+  <app-terminal></app-terminal>
+</section>
+<ng-template class="loading-template" #loading>
+  <div style="text-align:center">
+    <h3> Servidor carregando... aguarde.</h3>
+  </div>
+  <div class="cssload-thecube">
+    <p>loading-template</p>
+    <div class="cssload-cube cssload-c1"></div>
+    <div class="cssload-cube cssload-c2"></div>
+    <div class="cssload-cube cssload-c4"></div>
+    <div class="cssload-cube cssload-c3"></div>
+  </div>
+</ng-template>
