@@ -41,7 +41,7 @@
     "foreach": "^2.0.5",
     "hammerjs": "^2.0.8",
     "jscrambler": "^5.2.8",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.21",
     "primeng": "^5.2.6",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.1.0",
